@@ -1,0 +1,61 @@
+﻿@{
+	Layout = "_login";
+}
+@model QueryRaiserApp.Models.login1
+
+   
+   
+
+    
+<div class="container align-middle d-flex justify-content-center" style="width:100%;height:100%" id="login">
+    <div class="row mt-5 align-self-center" >
+    <div class="col bg-white  rounded " style="border-top:3px solid green;width:350px;">
+    <h2 class="text-center mt-3">Signin Now</h2>
+    <p class="text-center text-muted lead">Hi! Buddy Have a GoodDay</p>
+    <!---- input start--->
+    
+     
+        <div class="input-group pt-4">
+                <span class="input-group-text"><i class="fa-regular fa-envelope"></i></span>
+            <input type="email" class="form-control emailvalidation" id="email" placeholder="Enter Email" />
+                <div class="valid-feedback">Email correct</div>
+            <div class="invalid-feedback">Enter your email</div>
+        </div>
+
+            <div class="input-group pt-4">
+                <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                <input type="password" class="form-control" id="password" placeholder="Enter Password" />
+                <div class="valid-feedback">password correct</div>
+                <div class="invalid-feedback">Enter your password</div>
+            </div>
+            <div class="input-group pt-4">
+               
+                <input type="number" class="form-control text-center fw-bolder" style="letter-spacing:30px;background-color:#ffdde1;" id="otpset" placeholder="OTP" />
+             
+            </div>
+            <div class="input-group pt-4">
+                <span class="input-group-text"><i class="fa-solid fa-check"></i></span>
+                <input type="number" class="form-control text-center" id="otpget" style="letter-spacing:30px" placeholder="OTP" />
+
+            </div>
+
+            <div class="d-grid pt-5">
+                <button type="submit" value="submit" class="btn btn-success" onclick="submitlogin();">Signin</button>
+                <p class="text-center pt-5">
+                    You Don't Have Account ? <a  style="color:green" asp-controller="Account" asp-action="register">Register</a>
+                </p>
+            </div>
+    
+        </div>
+    </div>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/JavaScript.js"></script>
+<script src="~/js/loginscript.js"></script>
+<script src="~/js/valid.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>

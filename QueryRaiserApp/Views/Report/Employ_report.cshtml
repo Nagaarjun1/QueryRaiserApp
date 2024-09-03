@@ -1,0 +1,129 @@
+﻿@{
+    Layout = "_Employ";
+}
+
+
+@model IEnumerable<QueryRaiserApp.Models.getdetail>
+
+@{
+    ViewData["Title"] = "Employ_report";
+}
+
+<h1 class="h2 mt-3" style="color:#889982">Company Report</h1>
+<div class="modal" id="modalform">
+    <div class="modal-dialog">
+        <div class="modal-content" style="border-top:12px solid green">
+            <div class="text-center mt-4">
+                <h3 class=" text-center h2" style="color:#028a0f" id="modalheader">Message</h3>
+            </div>
+            <div class="modal-body">
+                <div class="form-group mt-3">
+                    <label class="form-label control-label font-monospace" style="color:#556B2F">Queryid</label>
+                <input type="number" class="form-control" id="queryid" />
+                </div>
+                <div class="form-group mt-3">
+                    <label class="form-label control-label font-monospace" style="color:#556B2F">Sender</label>
+                <input id="reviewer" class="form-control" placeholder="enter name" />
+                </div>
+                <div class="form-group mt-3">
+                    <label class="form-label control-label font-monospace" style="color:#556B2F">Message</label>
+                <input id="response" class="form-control" placeholder="response not yet" />
+                </div>
+                <div class="form-group mt-3">
+                    <label class="form-label control-label font-monospace" style="color:#556B2F">Replay</label>
+                <input id="review" class="form-control" placeholder="enter review" />
+                </div>
+            </div>
+            <div class="modal-footer mt-3">
+                <button class="btn btn-primary" id="save" type="submit" onclick="update();">Send</button>
+
+                <button class="btn btn-danger" data-bs-dismiss="modal" onclick="hidemodel();">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="table-responsive mt-5">
+<table class="table table-bordered table-hover table-center">
+        <thead style="background-color:#94DEA5">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.userqueryid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.query)
+            </th>
+         
+            <th>
+                @Html.DisplayNameFor(model => model.typename)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.statustype)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.priorityname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.submittedon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.submittedby)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.responses)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.modifiedon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.modifiedby)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.userqueryid)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.query)
+            </td>
+               
+            <td>
+                @Html.DisplayFor(modelItem => item.typename)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.statustype)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.priorityname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.submittedon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.submittedby)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.responses)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.modifiedon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.modifiedby)
+            </td>
+            <td>
+                    <a class="btn btn-success btn-sm" onclick="ResponseGet(@item.userqueryid);">Message</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
+<script src="~/js/responseboxemp.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+<script src="~/js/jQuery.js"></script>

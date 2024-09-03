@@ -1,0 +1,105 @@
+﻿@{
+    Layout = "_Employ";
+}
+
+@model QueryRaiserApp.Models.Alldata
+
+<buttton class="btn btn-info btn-sm  mx-3" onclick="querycheckemp();">Querycheck</buttton>
+
+<div class="modal" id="modalform">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-header" id="modalheader">Not Response</h3>
+            </div>
+            <div class="modal-body" id="checkerinsert">
+                <table class="table-bordered table-success">
+                    <thead>
+                    <th>Queryid</th>
+                    <th>sender</th>
+                    <th>Query</th>
+                    <th>Type</th>
+                    <th>Message</th>
+                    </thead>
+                    <tbody id="checkerinserttable">
+                    </tbody>
+
+                </table>
+            </div>
+            <div class="modal-footer">
+
+
+                <button class="btn btn-danger" data-bs-dismiss="modal" onclick="hidemodel();">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modalform1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-header" id="modalheader">Review</h3>
+            </div>
+            <div class="modal-body">
+                <input type="number" class="form-control" id="queryid" />
+
+                <input id="reviewer" class="form-control" placeholder="enter name" />
+
+
+
+                <input id="reviewtext" class="form-control" placeholder="enter review" />
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="save" type="submit" onclick="update();">Resent</button>
+
+                <button class="btn btn-danger" data-bs-dismiss="modal" onclick="hidemodel1();">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container text-center" id="reportcontainer1"></div>
+<div class="container align-middle d-flex justify-content-center" style="width:100%;height:100%" id="empreportcontainer">
+    <div class="row mt-5 align-self-center">
+        <div class="col bg-white  rounded " style="border-top:3px solid green;width:350px;">
+            <h2 class="text-center mt-3">Query Raiser</h2>
+            <p class="text-center text-muted lead">Hi! Buddy Have a GoodDay</p>
+            <!---- input start--->
+
+            <div class=" pt-4">
+
+
+                @Html.DropDownListFor(m => m.Roletype1.role, new SelectList(Model.employQueryType, "roleid", "rolename"), new { @class = "form-control", @id = "empQueryposition" })
+
+
+            </div>
+            <div class=" pt-4">
+                @Html.DropDownListFor(m => m.Roletype1.priority1, new SelectList(Model.prioritys, "priorityid", "priorityname"), new { @class = "form-control", @id = "emppriorityQueryposition" })
+            </div>
+
+            <div class="input-group pt-4">
+
+                <textarea class="form-control" id="empQuery" placeholder="Enter Your Query"></textarea>
+
+            </div>
+            <div class="d-grid pt-5">
+                <button type="submit" value="submit" class="btn btn-success" onclick="empreportsubmit();">Sent</button>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="~/js/report_emp_query.js"></script>
+<script src="~/js/querycheckeremp.js"></script>
+<script src="~/js/resentviewscript.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+<script src="~/js/JavaScript.js"></script>

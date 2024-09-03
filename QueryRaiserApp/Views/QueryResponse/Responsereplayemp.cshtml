@@ -1,0 +1,61 @@
+﻿@{
+    Layout = "_Employ";
+}
+@model QueryRaiserApp.Models.Alldata
+
+@{
+    var registerdatas4 = ViewData["registerdatas"] as QueryRaiserApp.Models.registration;
+}
+
+
+
+
+<div class="container align-middle d-flex justify-content-center" style="width:100%;height:100%" id="login">
+    <div class="row mt-5 align-self-center">
+        <div class="col bg-white  rounded " style="border-top:3px solid green;width:450px;">
+            <h2 class="text-center mt-3">Company</h2>
+            <p class="text-center text-muted lead">Message Box</p>
+        <form asp-action="employ_responce_save">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group mt-2">
+                    <label class="form-label control-label" asp-for="Responsequeries.userqueryid">Userqueryid</label>
+                <input asp-for="Responsequeries.userqueryid" class="form-control" value="@Model.Userqueries1.userqueryid" />
+                <span asp-validation-for="Responsequeries.userqueryid" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-2">
+                <label asp-for="Responsequeries.responseby" class="form-label control-label">Sender</label>
+                <input asp-for="Responsequeries.responseby" class="form-control" value="@registerdatas4.emailid" />
+                <span asp-validation-for="Responsequeries.responseby" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2">
+                <label  class="form-label control-label">Messages</label>
+                <input  class="form-control" value="@Model.Userqueries1.review" />
+                <span asp-validation-for="Responsequeries.responses" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-2">
+                <label asp-for="Responsequeries.responses" class=" form-label control-label">Replay</label>
+                <input asp-for="Responsequeries.responses" class="form-control" />
+                <span asp-validation-for="Responsequeries.responses" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2">
+                @Html.DropDownListFor(m => m.Responsequeries.statustypeid, new SelectList(Model.Statustype, "statusid", "statustype"), new { @class = "form-control mt-2" })
+            </div>
+
+
+            <div class="form-group mt-2">
+                <input  type="submit" value="Save" class="btn btn-primary form-control px-5" />
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,136 @@
+﻿@{
+    Layout = "_Employ";
+}
+
+@model IEnumerable<QueryRaiserApp.Models.responsegetdetail>
+
+@{
+    var registerdatas3 = ViewData["registerdatas"] as QueryRaiserApp.Models.registration;
+}
+
+<h1 class="h2 mt-3" style="color:#889982">Company Response</h1>
+<div class="modal" id="modalform">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-header" id="modalheader">Review</h3>
+            </div>
+            <div class="modal-body">
+                <input type="number" class="form-control" id="queryid" />
+
+               
+
+                <input id="response" class="form-control" placeholder="enter name" />
+                <input id="reviewer" class="form-control" placeholder="enter name" />
+
+                <input id="review" class="form-control" placeholder="enter review" />
+
+            
+
+            </div>
+            <div class="modal-footer">
+              
+
+                <button class="btn btn-danger" data-bs-dismiss="modal" onclick="hidemodel();">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="table-responsive mt-3">
+<table class="table table-bordered table-hover text-center">
+        <thead style="background-color:#94DEA5">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.userqueryid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.query)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.submittedon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.submittedby)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.statustype)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.priorityname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.responses)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.responseon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.responseby)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.review)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.modifiedon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.modifiedby)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.userqueryid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.query)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.submittedon)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.submittedby)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.statustype)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.priorityname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.responses)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.responseon)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.responseby)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.review)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.modifiedon)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.modifiedby)
+                </td>
+                <td>
+                                     <a class="btn btn-success btn-sm" asp-action="Responsereplayemp" asp-route-id="@item.userqueryid,@registerdatas3.emailid">Message</a>
+
+                </td>
+            
+            </tr>
+        }
+    </tbody>
+</table>
+</div>
+<script src="~/js/feedbackdisplay.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/js/jQuery.js"></script>
